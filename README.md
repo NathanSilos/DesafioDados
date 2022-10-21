@@ -11,26 +11,26 @@ Deve-se realizar um *data cleansing* (limpeza de dados) nos campos com itens ide
 
 ### Tabela: Proposição
 ```
-**id** (incremental)
-**author** (string - Autor - ex. Governador Romeu Zema Neto)
-**presentationDate** (timestamp - Data de Apresentação - ex. 2022-10-06T00:00:00Z)
-**ementa** (string - Assunto - ex. Encaminha o Projeto de Lei 4008 2022, que dispõe sobre a revisão do Plano Plurianual de Ação Governamental - PPAG - 2020-2023, para o exercício de 2023.)
-**regime** (string - Regime - ex. Especial)
-**situation** (string - Situação - ex. Publicado)
-**propositionType** (string - Tipo da Proposição - ex. MSG)
-**number** (string - Numero - ex. 300)
-**year** (integer - Ano - ex. 2022)
-**city** (string -> fixo "Belo Horizonte")
-**state** (string -> fixo "Minas Gerais")
+id (incremental)
+author (string - Autor - ex. Governador Romeu Zema Neto)
+presentationDate (timestamp - Data de Apresentação - ex. 2022-10-06T00:00:00Z)
+ementa (string - Assunto - ex. Encaminha o Projeto de Lei 4008 2022, que dispõe sobre a revisão do Plano Plurianual de Ação Governamental - PPAG - 2020-2023, para o exercício de 2023.)
+regime (string - Regime - ex. Especial)
+situation (string - Situação - ex. Publicado)
+propositionType (string - Tipo da Proposição - ex. MSG)
+number (string - Numero - ex. 300)
+year (integer - Ano - ex. 2022)
+city (string -> fixo "Belo Horizonte")
+state (string -> fixo "Minas Gerais")
 ```
 
 ### Tabela: Tramitação
 ```
-**id** (incremental)
-**createdAt** (string - Data - ex. 2022-10-04T00:00:00Z)
-**description** (string - Histórico - Proposição lida em Plenário.\nPublicada no DL em 6 10 2022, pág 24.)
-**local** (string - Local - ex. Plenário)
-**propositionId** (chave estrangeira da proposição)
+id (incremental)
+createdAt (string - Data - ex. 2022-10-04T00:00:00Z)
+description (string - Histórico - Proposição lida em Plenário.\nPublicada no DL em 6 10 2022, pág 24.)
+local (string - Local - ex. Plenário)
+propositionId (chave estrangeira da proposição)
 ```
 Uma proposição tem uma lista (histórico) de tramitações.
 
@@ -38,22 +38,22 @@ Caso opte por realizar em PySaprk (preferível) criar no modelo a seguir:
 
 ### Dataframe
 ```
-**id** (incremental)
-**author** (string - Autor - ex. Governador Romeu Zema Neto)
-**presentationDate** (timestamp - Data de Apresentação - ex. 2022-10-06T00:00:00Z)
-**ementa** (string - Assunto - ex. Encaminha o Projeto de Lei 4008 2022, que dispõe sobre a revisão do Plano Plurianual de Ação Governamental - PPAG - 2020-2023, para o exercício de 2023.)
-**regime** (string - Regime - ex. Especial)
-**situation** (string - Situação - ex. Publicado)
-**propositionType** (string - Tipo da Proposição - ex. MSG)
-**number** (string - Numero - ex. 300)
-**year** (integer - Ano - ex. 2022)
-**city** (string -> fixo "Belo Horizonte")
-**state** (string -> fixo "Minas Gerais")
-**tramitacoes** (array -> object - Histórico de Tramitações - campo: listaHistoricoTramitacoes)
+id (incremental)
+author (string - Autor - ex. Governador Romeu Zema Neto)
+presentationDate (timestamp - Data de Apresentação - ex. 2022-10-06T00:00:00Z)
+ementa (string - Assunto - ex. Encaminha o Projeto de Lei 4008 2022, que dispõe sobre a revisão do Plano Plurianual de Ação Governamental - PPAG - 2020-2023, para o exercício de 2023.)
+regime (string - Regime - ex. Especial)
+situation (string - Situação - ex. Publicado)
+propositionType (string - Tipo da Proposição - ex. MSG)
+number (string - Numero - ex. 300)
+year (integer - Ano - ex. 2022)
+city (string -> fixo "Belo Horizonte")
+state (string -> fixo "Minas Gerais")
+tramitacoes (array -> struct - Histórico de Tramitações - campo: listaHistoricoTramitacoes)
   {
-    **createdAt** (string - Data - ex. 2022-10-04T00:00:00Z)
-    **description** (string - Histórico - Proposição lida em Plenário.\nPublicada no DL em 6 10 2022, pág 24.)
-    **local** (string - Local - ex. Plenário)
+    createdAt (string - Data - ex. 2022-10-04T00:00:00Z)
+    description (string - Histórico - Proposição lida em Plenário.\nPublicada no DL em 6 10 2022, pág 24.)
+    local (string - Local - ex. Plenário)
   }
 ```
 
