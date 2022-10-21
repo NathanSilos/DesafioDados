@@ -10,6 +10,7 @@ Utilizando SQL Oracle ou PySpark, faça o tratamento e remodelagem dos dados dis
 Deve-se realizar um *data cleansing* (limpeza de dados) nos campos com itens idesejados (espaçamento desnecessário, "\n", etc) e ajustar esses campos ao formato adequado, seguindo a modelagem a seguir (**Atenção ao formato dos exemplos**):
 
 ### Tabela: Proposição
+```
 **id** (incremental)
 **author** (string - Autor - ex. Governador Romeu Zema Neto)
 **presentationDate** (timestamp - Data de Apresentação - ex. 2022-10-06T00:00:00Z)
@@ -21,20 +22,22 @@ Deve-se realizar um *data cleansing* (limpeza de dados) nos campos com itens ide
 **year** (integer - Ano - ex. 2022)
 **city** (string -> fixo "Belo Horizonte")
 **state** (string -> fixo "Minas Gerais")
+```
 
 ### Tabela: Tramitação
-
+```
 **id** (incremental)
 **createdAt** (string - Data - ex. 2022-10-04T00:00:00Z)
 **description** (string - Histórico - Proposição lida em Plenário.\nPublicada no DL em 6 10 2022, pág 24.)
 **local** (string - Local - ex. Plenário)
 **propositionId** (chave estrangeira da proposição)
-
+```
 Uma proposição tem uma lista (histórico) de tramitações.
 
 Caso opte por realizar em PySaprk (preferível) criar no modelo a seguir:
 
 ### Dataframe
+```
 **id** (incremental)
 **author** (string - Autor - ex. Governador Romeu Zema Neto)
 **presentationDate** (timestamp - Data de Apresentação - ex. 2022-10-06T00:00:00Z)
@@ -52,6 +55,7 @@ Caso opte por realizar em PySaprk (preferível) criar no modelo a seguir:
     **description** (string - Histórico - Proposição lida em Plenário.\nPublicada no DL em 6 10 2022, pág 24.)
     **local** (string - Local - ex. Plenário)
   }
+```
 
 # Desafio 2
 
